@@ -1,141 +1,128 @@
-🩺 Medical Information Chatbot (Groq + PDF RAG)
+# 🩺 Medical Information Chatbot (Groq + PDF RAG)
 
-An educational medical assistant that uses PDF-based RAG, Groq (Llama-3.1-8B-Instant), and DuckDuckGo web search to provide clear, safe, and easy-to-understand medical information.
+An educational medical chatbot that uses **PDF-based retrieval**, **Groq Llama-3.1-8B-Instant**, and **DuckDuckGo web search** to provide simplified and reliable medical information.
 
-⚠️ This chatbot does NOT diagnose, prescribe, or replace a licensed doctor.
+⚠️ *This chatbot does NOT diagnose, prescribe medicines, or replace a licensed doctor.*
 
-🚀 Live Demo
+---
 
-<h3>Medical Chatbot</h3>
+## 🔗 Live Links
 
-<p>Open the <a href="https://medicalchatbot-39zwt8s5xoqymnf2ukxm3v.streamlit.app">Streamlit App</a></p>
+<p>
+👉 Open the <a href="https://medicalchatbot-39zwt8s5xoqymnf2ukxm3v.streamlit.app">Streamlit Medical Chatbot App</a>  
+👉 View the <a href="https://github.com/veerasiva123/Medical_Chatbot">GitHub Repository</a>
+</p>
 
-<p>View the <a href="https://github.com/veerasiva123/Medical_Chatbot">GitHub Repository</a></p>
+---
 
+## ⭐ Features
 
-📌 Features
-✅ 1. PDF-Based RAG
+### 📄 1. PDF-Based RAG (Retrieval-Augmented Generation)
+- Upload medical PDFs such as guides, articles, FAQs.
+- Text is extracted and indexed using TF-IDF.
+- Answers are grounded in PDF content.
 
-Upload medical PDFs (guides, health articles, notes).
+### ⚡ 2. Fast LLM Responses (Groq)
+- Model: **Llama-3.1-8B-Instant** via Groq API.
+- Very fast response time.
 
-System extracts text from each PDF using PyPDF2.
+### 🌐 3. DuckDuckGo Web Search (Optional)
+- Fetches fresh external information.
+- Summarized safely into the final answer.
 
-Answers are grounded in retrieved content.
+### 📝 4. Two Response Styles
+- **Concise** → Short 2–4 sentences  
+- **Detailed** → Structured explanation with sections/bullets  
 
-✅ 2. Groq LLM (Llama-3.1-8B-Instant)
+### 🛡 5. Medical Safety Rules
+- No medical diagnosis  
+- No prescriptions  
+- Encourages doctor consultation  
+- Emergency symptom detection  
 
-Fast, reliable inference through Groq API.
+---
 
-Used for generating safe, simple, and structured answers.
+## 🧠 Tech Stack
 
-✅ 3. Web Search (DuckDuckGo) – Optional
+| Component | Technology |
+|----------|------------|
+| LLM | Groq – Llama-3.1-8B-Instant |
+| Framework | Streamlit |
+| RAG | TF-IDF (scikit-learn) |
+| PDF Extraction | PyPDF2 |
+| Web Search | DuckDuckGo Search |
+| Deployment | Streamlit Cloud |
 
-Provides fresh information from the internet.
+---
 
-Automatically summarized into the final answer.
+## 📂 Project Structure
 
-✅ 4. Two Response Modes
-
-Concise: 2–4 sentences
-
-Detailed: Well-structured explanation with bullet points
-
-✅ 5. Medical Safety Layer
-
-No prescriptions
-
-No diagnosis
-
-Encourages doctor consultation
-
-Emergency warning detection
-
-🛠️ Tech Stack
-Component	Technology
-LLM	Groq – Llama-3.1-8B-Instant
-Framework	Streamlit
-RAG	TF-IDF (scikit-learn)
-PDF Processing	PyPDF2
-Web Search	DuckDuckGo Search
-Deployment	Streamlit Cloud
-📂 Folder Structure
 project/
 │
 ├── app.py
 ├── config/
-│   └── config.py
+│ └── config.py
 ├── models/
-│   └── llm.py
+│ └── llm.py
 ├── utils/
-│   ├── rag.py
-│   ├── pdf_utils.py
-│   └── web_search.py
+│ ├── rag.py
+│ ├── pdf_utils.py
+│ └── web_search.py
 ├── requirements.txt
 └── README.md
 
-🔑 Environment Variables (Secrets)
+## 🔑 API Key (Secrets)
 
-In Streamlit Cloud → Settings → Secrets:
+Add this in **Streamlit → App Settings → Secrets**:
 
 GROQ_API_KEY="your-key-here"
 
+yaml
+Copy code
 
-No secrets are stored in the repository.
+Do NOT store your key inside the repo.
 
-▶️ How to Run Locally
+---
 
-Clone the repository
+## ▶️ Run Locally
 
-git clone https://github.com/yourusername/medical_chatbot.git
-cd medical_chatbot
-
-
-Create virtual environment
-
+### 1. Clone the repo  
+```sh
+git clone https://github.com/veerasiva123/Medical_Chatbot
+cd Medical_Chatbot
+2. Create virtual environment
+sh
+Copy code
 python -m venv .venv
-source .venv/bin/activate      # Mac/Linux
-.venv\Scripts\activate         # Windows
-
-
-Install dependencies
-
+.venv\Scripts\activate     # Windows
+source .venv/bin/activate  # Mac/Linux
+3. Install dependencies
+sh
+Copy code
 pip install -r requirements.txt
-
-
-Add environment variable
-
+4. Add your environment variable
+sh
+Copy code
 set GROQ_API_KEY="your-key-here"      # Windows
 export GROQ_API_KEY="your-key-here"   # Mac/Linux
-
-
-Run
-
+5. Run
+sh
+Copy code
 streamlit run app.py
-
-📘 How It Works (Short Explanation)
-
+📘 How It Works
 User uploads PDFs
 
-Text is extracted and converted to embeddings using TF-IDF
+Text is extracted using PyPDF2
 
-Query → Retrieve relevant PDF chunks
+TF-IDF retrieves relevant segments
 
-Optional: Run DuckDuckGo search for extra context
+Optional DuckDuckGo search adds context
 
-All context is combined into a structured system prompt
+Combined prompt → Groq generates answer
 
-Sent to Groq Llama-3.1-8B-Instant
+Output is simplified + safety-filtered
 
-The model generates a safe, helpful answer
-
-🚨 Disclaimer
-
-This chatbot is for educational purposes only.
-It cannot:
-
-Diagnose conditions
-
-Prescribe medicines
-
-Provide emergency instructions
-Always consult a licensed doctor for personal medical advice.
+📜 Disclaimer
+This chatbot provides general educational medical information only.
+It cannot diagnose, treat, or give emergency instructions.
+Always consult a licensed doctor for medical concerns.
