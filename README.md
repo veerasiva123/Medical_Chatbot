@@ -6,8 +6,12 @@ An educational medical assistant that uses PDF-based RAG, Groq (Llama-3.1-8B-Ins
 
 🚀 Live Demo
 
-🔗 Streamlit App: https://medicalchatbot-39zwt8s5xoqymnf2ukxm3v.streamlit.app/
-🔗 GitHub Repository: https://github.com/veerasiva123/Medical_Chatbot
+<h3>Medical Chatbot</h3>
+
+<p>Open the <a href="https://medicalchatbot-39zwt8s5xoqymnf2ukxm3v.streamlit.app">Streamlit App</a></p>
+
+<p>View the <a href="https://github.com/veerasiva123/Medical_Chatbot">GitHub Repository</a></p>
+
 
 📌 Features
 ✅ 1. PDF-Based RAG
